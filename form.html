@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How did we do?</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="icon" type="image/svg+xml" href="images/edit.svg">
+    <style>
+        body {
+            background: white;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            transition: opacity 0.5s ease-in-out;
+            position: relative;
+            color: #000;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: white;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            height: 80px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            border-radius: 0.5rem;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+            font-size: 1rem; 
+        }
+
+        .navbar a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .navbar img {
+            cursor: pointer;
+            height: auto;
+            width: 70px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 0.2rem;
+            color: black;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 0.5rem 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            font-size: 0.8rem;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 10rem;
+            z-index: 2;
+        }
+
+        .container h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .container p {
+            margin-bottom: 2rem;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 3rem auto;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            border-radius: .75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .contact-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-title h2 {
+            font-size: 2rem;
+            margin: 0;
+            color: white;
+        }
+
+        .contact-title hr {
+            width: 50px;
+            height: 2px;
+            background: white;
+            border: none;
+            margin: 0.5rem auto;
+        }
+
+        .contact-inputs {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 1rem;
+            border-radius: .5rem;
+            border: none;
+            outline: none;
+            margin-bottom: 1rem;
+        }
+
+        .contact-inputs::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .contact-container button {
+            width: 100%;
+            background: white;
+            color: black;
+            padding: 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .contact-left button:hover {
+            background: #e6b800;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-gap: .5rem;
+            font-size: 2rem;
+            color: gold;
+            margin-bottom: 2rem;
+        }
+
+        .rating .star {
+            cursor: pointer;
+            color: gold;
+        }
+
+        .rating .star.filled {
+            color: gold;
+        }
+
+        .rating .star.active {
+            opacity: 0;
+            animation: animate .5s calc(var(--i) * .1s) ease-in-out forwards;
+        }
+
+        @keyframes animate {
+            0% {
+                opacity: 0;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .navbar-links a {
+                display: none;
+            }
+
+            .social-icons span {
+                display: none;
+            }
+
+            .social-icons {
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+                height: auto;
+            }
+
+            .logo-container img {
+                width: 60px;
+            }
+
+            .container h1 {
+                font-size: 2.5rem;
+            }
+
+            .container p {
+                font-size: 1.2rem;
+            }
+
+            .container a {
+                padding: 0.8rem 1.2rem;
+            }
+
+            .button-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .button-container img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body class="fade-in">
+    <div class="overlay"></div>
+    <div class="navbar">
+        <div class="navbar-links">
+            <a href="index.html">Home</a>
+            <a href="feedback.html" id="rate-link">Rate our Services</a>
+        </div>
+        <div class="logo-container">
+            <img src="./images/logo.png" alt="Logo" onclick="window.location.href='index.html'">
+        </div>
+        <div class="social-icons">
+            <span>Our Socials:</span> 
+            <a href="https://www.instagram.com/google/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/google/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Feedback</h1>
+        <p>We are sorry we didn't meet your expectations. Please fill out this form and we will get in touch with you.</p>
+        <div class="contact-container">
+            <div class="contact-title">
+                <h2>Write your review</h2>
+                <hr>
+            </div>
+            <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="acc5995b-c9cc-4ef2-bde3-ae69e4ca3e64">
+                <input type="text" class="contact-inputs" name="name" placeholder="Your Name" required>
+                <input type="email" class="contact-inputs" name="email" placeholder="Your Email" required>
+                <textarea class="contact-inputs" name="message" rows="5" placeholder="Your Message" required></textarea>
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 GetReviewSG. All Rights Reserved.</p>
+    </div>
+</body>
+</html>
